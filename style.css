@@ -1,0 +1,95 @@
+header {
+    min-height: 100px;
+    background-color: #009688;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+img{
+    width: 40px;
+    height: 40px;
+}
+
+.container-main{
+    height: 650px;
+
+}
+.profile-bar {
+    border: 1px solid rgba(128, 128, 128, 0.568);
+    z-index: 20;
+    width: 40%;
+    height: 100%;
+    overflow: auto;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.my-profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EAEAEA;
+}
+
+.img-profile {
+    margin: .5rem;
+    width: 50px;
+    height: 50px;
+}
+
+.notification-bar {
+    height: 10%;
+    background-color: #8EDAFC;
+}
+
+.notification-bar>div {
+    font-size: 0.8rem;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: auto;
+    background-color: #FAFAFA;
+}
+
+.contact-container>ul {
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+    overflow: auto;
+
+}
+
+.profile-name{
+    font-size: .8rem;
+    padding: 0 .5rem;
+}
+
+.contact-chat-bar{
+    justify-content: space-between;
+    border: 1px solid gray;
+    background-color: #E9E9E9;
+    padding: .5rem;
+}
+
+.bg-whats{
+    background-image: url('img/mine.jpg');
+    background-size: contain;
+    height: 100%;
+}
+
+.message{
+    background-color: #F3EDEA;
+    height: 50px;
+}
+
+.m{
+    height: 650px;
+}
+/*  */

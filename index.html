@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOOLZAPP</title>
+
+    <link rel="icon" type="image/x-icon" href="https://boolean.careers/favicon/favicon.ico">
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Librerie terze parti -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
+
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header>
+        </header>
+
+        <div class="container mt-4 border border-danger flex-grow-1 position-relative">
+
+            <div class="container-main flex-grow-1 overflow-auto d-flex">
+                <!-- BARRA LATERALE DEI PROFILI -->
+                <aside class="profile-bar">
+                    <!-- PROFILO PERSONALE -->
+                    <div class="my-profile">
+                        <div>
+                            <img class="img-profile rounded-circle" src="./img/avatar_io.jpg" alt="profile-pic">
+                            <span class="fw-bold">Sofia</span>
+                        </div>
+                        <div class="p-3">
+                            <a class="text-secondary opacity-50 px-2" href="#"><i
+                                    class="fa-solid fa-circle-notch"></i></a>
+                            <a class="text-secondary opacity-50 px-2" href="#"><i class="fa-solid fa-message"></i></a>
+                            <a class="text-secondary opacity-50 px-2" href="#"><i
+                                    class="fa-solid fa-ellipsis-vertical"></i></a>
+                        </div>
+                    </div>
+                    <!-- NOTIFICHE NUOVI MESSAGGI -->
+                    <div class="notification-bar px-3 py-2 d-flex">
+                        <a style="color: #8EDAFC; " class="bg-light rounded-circle p-2 fs-5" href="#"><i
+                                class="fa-solid fa-bell-slash"></i></a>
+                        <div class="px-2">
+                            <span class="fw-bold">Ricevi notifiche di nuovi messaggi</span>
+                            <p><a href="#">Attiva notifiche desktop</a></p>
+                        </div>
+                    </div>
+
+                    <!-- RICERCA CONTATTI -->
+                    <div class="contact-container py-2">
+
+                        <div class="input-group input-group-sm mb-2 p-2">
+                            <button class="btn btn-outline-secondary" style="width: 60px;" type="button"
+                                id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        </div>
+
+                        <!-- CONTATTI DI DUE ANNI FA -->
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex">
+                                <img class="rounded-circle" src="./img/avatar_1.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Michele</span>
+                                    <span class="d-inline-block text-truncate" style="width: 200px">Lorem ipsum dolor
+                                        sit amet consectetur adipisicing elit. Porro accusamus eaque, molestias nostrum
+                                        tempore dolore delectus asperiores sed, ducimus dolores necessitatibus ab natus
+                                        quia architecto placeat nam omnis illum provident?</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex flex-grow-1">
+                                <img class="rounded-circle" src="./img/avatar_2.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Fabio</span>
+                                    <span class="text-truncate">Ultimo messaggio inviato</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex flex-grow-1">
+                                <img class="rounded-circle" src="./img/avatar_3.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Samuele</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex flex-grow-1">
+                                <img class="rounded-circle" src="./img/avatar_4.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Alessandro B.</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex flex-grow-1">
+                                <img class="rounded-circle" src="./img/avatar_5.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Alessandro L.</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex flex-grow-1">
+                                <img class="rounded-circle" src="./img/avatar_6.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Claudia</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex flex-grow-1">
+                                <img class="rounded-circle" src="./img/avatar_7.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Federico</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex flex-grow-1">
+                                <img class="rounded-circle" src="./img/avatar_8.jpg" alt="">
+                                <div class="d-flex flex-column profile-name">
+                                    <span class="fw-bold">Davide</span>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </aside>
+                <!-- MAIN RIGHT CONTAINER -->
+                <main class="flex-grow-1 overflow-auto m">
+                    <!-- CHAT-CONTAINER -->
+
+                    <!-- CHAT CONTAINER-BAR -->
+                    <div class="d-flex flex-grow-1 contact-chat-bar overflow-auto">
+                        <div class="d-flex ">
+                            <img style="height: 50px; width: 50px;" class="rounded-circle" src="./img/avatar_1.jpg"
+                                alt="">
+                            <div class="d-flex flex-column profile-name lh-lg">
+                                <span class="fw-bold">Michele</span>
+                                <span class="d-inline-block text-truncate" style="width: 200px">Lorem ipsum dolor
+                                    sit
+                                    amet consectetur adipisicing elit. Porro accusamus eaque, molestias nostrum
+                                    tempore
+                                    dolore delectus asperiores sed, ducimus dolores necessitatibus ab natus quia
+                                    architecto placeat nam omnis illum provident?</span>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a class="text-secondary opacity-50 px-2" href="#"><i
+                                    class="fa-solid fa-magnifying-glass"></i></a>
+                            <a class="text-secondary opacity-50 px-2" href="#"><i class="fa-solid fa-paperclip"></i></a>
+                            <a class="text-secondary opacity-50 px-2" href="#"><i
+                                    class="fa-solid fa-ellipsis-vertical"></i></a>
+                        </div>
+                    </div>
+
+
+
+                    <!-- CHAT-CONTENT-CONTAINER -->
+                    <div class="d-flex flex-grow-1 flex-column overflow-auto h-100">
+                        <div class="bg-whats d-flex flex-grow-1 overflow-auto">
+                            <div class="container">
+
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                                <p>ciisanbcn</p>
+                            </div>
+                            <!-- messaggio -->
+                        </div>
+                        <div class="message">
+                                <p>csjabckjsa</p>
+                        </div>
+                    </div>
+
+                </main>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -17,8 +17,8 @@ header {
 }
 
 img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .icon-option {
@@ -125,10 +125,23 @@ img {
     padding: .5rem;
     border-radius: .5rem;
     width: 250px;
+    max-width: 50%;
     background-color: white;
+    word-break: break-all;
 }
 
-.sent{
+.message-baloon>small {
+    font-size: .7rem;
+    display: block;
+    text-align: end;
+}
+
+.sent {
     margin-left: auto;
     background-color: #D5F9BA;
+}
+
+.drop{
+    position: absolute;
+    right: 0;
 }

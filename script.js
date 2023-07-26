@@ -2,6 +2,7 @@
 
 Vue.createApp({
     data() {
+        
         return {
 
             contactList: [
@@ -167,31 +168,61 @@ Vue.createApp({
                     ],
                 },
             ],
-
+            search: '',
             currentContact: null,
-            myMessage:[
+            myMessage: [
                 {
-                    massage:'',
-                    status:'',
+                    date: new Date ().toLocaleDateString(),
+                    massage: '',
+                    status: '',
                 }
             ],
+            
+            
         }
     },
     methods: {
+
+        currentTime(){
+
+        },
+
         userClick(contact) {
             this.currentContact = contact
             console.log(contact)
         },
-
-        sentMessage(){
-            const newMessage = {...this.myMessage}
+        
+        sentMessage() {
+            const newMessage = { ...this.myMessage }
+            if(newMessage === ''){
+                
+            }
+            newMessage.date = new Date().toLocaleTimeString()
             newMessage.status = 'sent'
-            this.contact.messages.push(newMessage)
+            this.currentContact.messages.push(newMessage)
+            
+            this.currentContact
+            
+            setTimeout(this.messageReceived, 1000)
+            console.log(newMessage)
+        },
+        messageReceived() {
+            const newMessage = { ...this.myMessage }
+            newMessage.date = new Date().toLocaleTimeString()
+            newMessage.status = 'received'
+            newMessage.message = 'Easy'
+            this.currentContact.messages.push(newMessage)
         }
     },
-
+    computed:{
+        filteredList(){
+            return this.contactList.filter(contact => {
+                return contact.name.toLowerCase().includes(this.search.toLowerCase())
+            } )
+        }
+    },
     beforeMount() {
         this.currentContact = this.contactList[0]
-    }
+    },
 
 }).mount("#app")

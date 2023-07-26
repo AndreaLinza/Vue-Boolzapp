@@ -65,26 +65,24 @@
                             <button class="btn btn-outline-secondary opacity-50" style="width: 60px;" type="button"
                                 id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
                             <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                v-model="search">
                         </div>
 
                         <!-- CONTATTI DI DUE ANNI FA -->
 
                         <ul class="list-group list-group-flush overflow-auto flex-grow-1">
                             <li class="list-group-item list-group-item-action d-flex" 
-                            v-for="contact in contactList"
-                            @click="userClick(contact)">
+                            v-for="contact in filteredList"
+                                @click="userClick(contact)">
                                 <img class="rounded-circle" 
                                 :src="`./img/avatar${contact.avatar}.jpg`" alt="pic-img">
                                 <div class="d-flex flex-column profile-name">
                                     <span class="fw-bold">{{contact.name}}</span>
-                                    <span class="d-inline-block text-truncate" style="width: 200px">Lorem ipsum dolor
-                                        sit amet consectetur adipisicing elit. Porro accusamus eaque, molestias nostrum
-                                        tempore dolore delectus asperiores sed, ducimus dolores necessitatibus ab natus
-                                        quia architecto placeat nam omnis illum provident?</span>
+                                    <span class="d-inline-block text-truncate" style="width: 200px">
+                                    {{contact.messages[contact.messages.length - 1].message}}</span>
                                 </div>
                                 <div class="time ms-auto small">
-                                    {{contact.messages[0].date}}
+                                    {{contact.messages[contact.messages.length - 1].date}}
                                 </div>
                             </li>
 
@@ -101,12 +99,11 @@
                     <!-- CHAT CONTAINER-BAR -->
                     <div class="contact-chat-bar">
                         <div class="d-flex">
-                            <img style="height: 50px; width: 50px;" class="rounded-circle" 
-                            :src="`./img/avatar${currentContact.avatar}.jpg`"
-                                alt="">
+                            <img class="rounded-circle"
+                                :src="`./img/avatar${currentContact.avatar}.jpg`" alt="avatar">
                             <div class="d-flex flex-column profile-name lh-lg">
                                 <span class="fw-bold">{{currentContact.name}}</span>
-                                <span class="d-inline-block text-truncate" style="width: 150px">Lorem ipsum dolor
+                                <span class="d-inline-block text-truncate" style="width: 250px">Lorem ipsum dolor
                                     sit
                                     amet consectetur adipisicing elit. Porro accusamus eaque, molestias nostrum
                                     tempore
@@ -126,30 +123,28 @@
 
                     <div class="message-container p-4 flex-grow-1 overflow-auto h-100">
 
-                        <div class="single-message"
+                        <div class="single-message position-relative" 
                         v-for="currentMessage in currentContact.messages">
-                            <div class="message-baloon"
-                            :class="currentMessage.status === 'sent' ? 'sent' : 'received'">
-                                {{currentMessage.message}}
-                                
+                            <div>
+
+                                <div class="message-baloon "
+                                    :class="currentMessage.status === 'sent' ? 'sent' : 'received'">
+                                    {{currentMessage.message}}
+                                    <br>
+                                    <small>{{currentMessage.date}}</small>
+                                    
+
+                                </div>
                             </div>
                         </div>
-                        <div class="single-message d-none">
-                            <div class="message-baloon"
-                            :class="sentMessage === 'sent' ? '' : ''">
-                            
-                            </div>
-                        </div>
-                        
+
                     </div>
                     <!-- INPUT-MESSAGGE -->
                     <div class="message">
                         <a class="icon-option mx-3" href="#"><i class="fa-regular fa-face-laugh"></i></a>
-                        <input type="text" 
-                        v-model="myMessage.message" 
-                        @keyup.enter="sentMessage"
-                        class="form-control border-0" placeholder="Scrivi un messaggio">
-                        
+                        <input type="text" v-model="myMessage.message" @keyup.enter="sentMessage"
+                            class="form-control border-0" placeholder="Scrivi un messaggio">
+
                         <a class="icon-option mx-3" href="#"><i class="fa-solid fa-microphone "></i></a>
                     </div>
 

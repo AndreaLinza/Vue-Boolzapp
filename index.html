@@ -49,10 +49,10 @@
                     </div>
                     <!-- NOTIFICHE NUOVI MESSAGGI -->
                     <div class="notification-bar p-3 d-flex">
-                        <a class="bg-light rounded-circle" href="#"><i
-                                class="fa-solid fa-bell-slash d-flex lh-sm align-item-center justify-content-center fs-5"
-                                style="padding: .3rem; aspect-ratio: 1/1;"></i></a>
-                        <div class="px-2">
+                        <a class="bg-light rounded-circle" href="#">
+                            <i
+                                class="fa-solid fa-bell-slash d-flex py-2 align-item-center justify-content-center fs-3"></i></a>
+                        <div class="px-2 d-flex flex-column py-1 align-item-center justify-content-center">
                             <span class="fw-bold">Ricevi notifiche di nuovi messaggi</span>
                             <p><a href="#">Attiva notifiche desktop</a></p>
                         </div>
@@ -71,15 +71,14 @@
                         <!-- CONTATTI DI DUE ANNI FA -->
 
                         <ul class="list-group list-group-flush overflow-auto flex-grow-1">
-                            <li class="list-group-item list-group-item-action d-flex" 
-                            v-for="contact in filteredList"
+                            <li class="list-group-item list-group-item-action d-flex" v-for="contact in filteredList"
                                 @click="userClick(contact)">
-                                <img class="rounded-circle" 
-                                :src="`./img/avatar${contact.avatar}.jpg`" alt="pic-img">
+
+                                <img class="rounded-circle" :src="`./img/avatar${contact.avatar}.jpg`" alt="pic-img">
                                 <div class="d-flex flex-column profile-name">
                                     <span class="fw-bold">{{contact.name}}</span>
                                     <span class="d-inline-block text-truncate" style="width: 200px">
-                                    {{contact.messages[contact.messages.length - 1].message}}</span>
+                                        {{contact.messages[contact.messages.length - 1].message}}</span>
                                 </div>
                                 <div class="time ms-auto small">
                                     {{contact.messages[contact.messages.length - 1].date}}
@@ -99,8 +98,7 @@
                     <!-- CHAT CONTAINER-BAR -->
                     <div class="contact-chat-bar">
                         <div class="d-flex">
-                            <img class="rounded-circle"
-                                :src="`./img/avatar${currentContact.avatar}.jpg`" alt="avatar">
+                            <img class="rounded-circle" :src="`./img/avatar${currentContact.avatar}.jpg`" alt="avatar">
                             <div class="d-flex flex-column profile-name lh-lg">
                                 <span class="fw-bold">{{currentContact.name}}</span>
                                 <span class="d-inline-block text-truncate" style="width: 250px">Lorem ipsum dolor
@@ -121,19 +119,31 @@
 
                     <!-- CHAT-CONTENT-CONTAINER -->
 
-                    <div class="message-container p-4 flex-grow-1 overflow-auto h-100">
+                    <div class="message-container p-4 flex-grow-1 overflow-auto h-100" ref="msgContainer">
+                        <div>
 
-                        <div class="single-message position-relative" 
-                        v-for="currentMessage in currentContact.messages">
-                            <div>
+                            <div class="single-message position-relative"
+                                v-for="(currentMessage,i) in currentContact.messages">
+                                <div>
 
-                                <div class="message-baloon "
-                                    :class="currentMessage.status === 'sent' ? 'sent' : 'received'">
-                                    {{currentMessage.message}}
-                                    <br>
-                                    <small>{{currentMessage.date}}</small>
-                                    
+                                    <div class="message-baloon position-relative"
+                                        :class="currentMessage.status === 'sent' ? 'sent' : 'received'">
+                                        {{currentMessage.message}}
+                                        <br>
+                                        <small class="pt-2">{{currentMessage.date}}</small>
+                                        <div class="dropdown position-absolute" style="top: 6px; right: 8px;">
+                                            <a href="#" class="d-block link-body-emphasis text-decoration-none"
+                                                data-bs-toggle="dropdown"><i
+                                                    class="fa-solid fa-caret-down hide"></i></a>
+                                            <ul class="dropdown-menu text-small" style="position: absolute; "
+                                                data-popper-placement="bottom-end">
+                                                <li><a class="dropdown-item" @click="deleteMessage(i)"
+                                                        href="#">Cancella</a>
+                                                </li>
+                                            </ul>
+                                        </div>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -141,11 +151,13 @@
                     </div>
                     <!-- INPUT-MESSAGGE -->
                     <div class="message">
-                        <a class="icon-option mx-3" href="#"><i class="fa-regular fa-face-laugh"></i></a>
-                        <input type="text" v-model="myMessage.message" @keyup.enter="sentMessage"
-                            class="form-control border-0" placeholder="Scrivi un messaggio">
+                        <a class="icon-option mx-3" href="#"><i class="fa-regular fa-face-laugh fs-5"></i></a>
+                        <input type="text" v-model='myMessage.message'
+                            @keyup.enter="sentMessage"
+                            class="form-control border-0 d-flex flex-wrap"
+                            placeholder="Scrivi un messaggio">
 
-                        <a class="icon-option mx-3" href="#"><i class="fa-solid fa-microphone "></i></a>
+                        <a class="icon-option mx-3" href="#"><i class="fa-solid fa-microphone fs-5"></i></a>
                     </div>
 
                 </main>
@@ -154,7 +166,9 @@
         </div>
 
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 

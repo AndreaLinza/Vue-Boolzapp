@@ -28,7 +28,7 @@ img {
 }
 
 .profile-bar {
-    border: 1px solid rgb(128, 128, 128);
+    
     width: 40%;
     height: 100%;
     overflow: auto;
@@ -56,15 +56,19 @@ img {
 }
 
 .notification-bar>a {
-    width: 50px;
+    
+    height: 50px;
     aspect-ratio: 1/1;
     text-decoration: none;
     color: #8EDAFC;
 
 }
+.notification-bar>a>i{
+    font-size: 1.rem;
+}
 
 .notification-bar>div {
-    font-size: 0.8rem;
+    font-size: .8rem;
 }
 
 .contact-container {
@@ -94,7 +98,7 @@ img {
     flex-direction: column;
     overflow: auto;
     height: 100%;
-    border: 1px solid rgb(128, 128, 128);
+    
 }
 
 .contact-chat-bar {
@@ -122,9 +126,9 @@ img {
 
 .message-baloon {
     margin: .5rem 0;
-    padding: .5rem;
+    padding: .5rem 1rem;
     border-radius: .5rem;
-    width: 250px;
+    width: 270px;
     max-width: 50%;
     background-color: white;
     word-break: break-all;
@@ -141,7 +145,10 @@ img {
     background-color: #D5F9BA;
 }
 
-.drop{
-    position: absolute;
-    right: 0;
+.hide{
+    opacity: .1;
+}
+.message-baloon:hover .hide{
+    opacity: 1;
+    transition: opacity .3s;
 }

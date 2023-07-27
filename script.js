@@ -2,9 +2,10 @@
 
 Vue.createApp({
     data() {
-        
+
         return {
 
+            //Lista contatti 
             contactList: [
                 {
                     name: "Michele",
@@ -168,59 +169,86 @@ Vue.createApp({
                     ],
                 },
             ],
+
+            // oggetto che passo al v-model search
             search: '',
+
+            // oggetto per il contatto corrente 
             currentContact: null,
+
+            // array dove pusho i miei messaggi 
             myMessage: [
                 {
-                    date: new Date ().toLocaleDateString(),
+                    date: '',
                     massage: '',
                     status: '',
                 }
             ],
-            
-            
+
+
         }
     },
     methods: {
 
-        currentTime(){
+        // DA TERMINARE !!!!!!!!!
+        currentDate() {
+            messages.forEach(date => {
 
+            });
         },
 
+        // DA TERMINARE !!!!!!!!
+        deleteMessage() {
+            this.contact
+        },
+
+        // Click che mi permette di passare da contatto a contatto
         userClick(contact) {
             this.currentContact = contact
             console.log(contact)
         },
-        
+
+        // Funzione per l'invio del messaggio 
         sentMessage() {
+
+            // Creo una copia di messaggio per poi pusharlo nei messaggi del contatto corrente 
             const newMessage = { ...this.myMessage }
-            if(newMessage === ''){
-                
-            }
-            newMessage.date = new Date().toLocaleTimeString()
+
+
+            newMessage.date = new Intl.DateTimeFormat('it', { timeStyle: 'short' }).format(new Date())
             newMessage.status = 'sent'
             this.currentContact.messages.push(newMessage)
-            
-            this.currentContact
-            
+
+
+            console.log(this.$refs.msgContainer)// Da completare la $ref
+
+            // Imposto un timeout per l'invio della risposta da parte del contatto selezionato
             setTimeout(this.messageReceived, 1000)
             console.log(newMessage)
         },
+
+        // Funzione per la risposta del messaggio
         messageReceived() {
             const newMessage = { ...this.myMessage }
-            newMessage.date = new Date().toLocaleTimeString()
+            newMessage.date = new Intl.DateTimeFormat('it', { timeStyle: 'short' }).format(new Date())
             newMessage.status = 'received'
             newMessage.message = 'Easy'
             this.currentContact.messages.push(newMessage)
-        }
+        },
+
+
     },
-    computed:{
-        filteredList(){
+
+    computed: {
+        // Creo il filtro per la barra di ricerca
+        filteredList() {
             return this.contactList.filter(contact => {
                 return contact.name.toLowerCase().includes(this.search.toLowerCase())
-            } )
+            })
         }
     },
+
+    // Faccio apparire sempre al caricamento della pagina il primo contatto 
     beforeMount() {
         this.currentContact = this.contactList[0]
     },

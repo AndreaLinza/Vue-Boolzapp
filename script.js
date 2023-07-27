@@ -197,9 +197,8 @@ Vue.createApp({
             });
         },
 
-        // DA TERMINARE !!!!!!!!
-        deleteMessage() {
-            this.contact
+        deleteMessage(i) {
+            this.currentContact.messages.splice(i,1)
         },
 
         // Click che mi permette di passare da contatto a contatto
